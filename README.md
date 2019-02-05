@@ -209,7 +209,7 @@ NOTE: replace the `recipient` and `sender` values in the GMail message request p
 
 Now that we have the full Ballerina code, we can go to the next step in deploying it as an AWS Lambda function. 
 
-## Deploying
+## Deployment
 
 - Building the Ballerina source:
 
