@@ -69,6 +69,7 @@ In the next step, you will be updating the code to extracing the S3 object infor
 ```ballerina
 import ballerina/system;
 import ballerinax/awslambda;
+import wso2/amazonrekn;
 
 amazonrekn:Configuration config = {
     accessKey: system:getEnv("AMAZON_ACCESS_KEY"),
@@ -88,7 +89,6 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
    }
    return "OK";
 }
-
 ```
 
 The next step is to invoke the Amazon Rekognition service to examine the image for text, and if so, extract the text that is there in the image. Here, you can see how the Amazon Rekognition connector is initiazed with the user credentials and the optional Amazon region setting. 
@@ -139,6 +139,9 @@ The final step is to gather up the information and send an email to the administ
 import wso2/amazonrekn;
 import wso2/amazoncommons;
 import wso2/gmail;
+import ballerina/config;
+import ballerina/http;
+import ballerina/io;
 import ballerina/system;
 import ballerinax/awslambda;
 
@@ -182,7 +185,7 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
        }
        if (text) {
            string result = check reknClient->detectText(obj);
-           sendEmail(obj, result);
+           check sendEmail(obj, result);
        }
        i = i + 1;
    }
@@ -192,8 +195,8 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 public function sendEmail(amazoncommons:S3Object obj, string text) returns error? {
     string id = check string.convert(check json.convert(obj));
     gmail:MessageRequest messageRequest = {};
-    messageRequest.recipient = "admin@foo.com";
-    messageRequest.sender = "user@bar.com";
+    messageRequest.recipient = "admin@example.com";
+    messageRequest.sender = "admin@example.com";
     messageRequest.subject = "Detected Text in Image at " + id;
     messageRequest.messageBody = text;
     messageRequest.contentType = gmail:TEXT_PLAIN;
@@ -282,7 +285,6 @@ $ aws lambda update-function-configuration --function-name processImages --layer
     "FunctionArn": "arn:aws:lambda:us-west-2:908363916138:function:processImages", 
     "Handler": "image-text-processor.processImages"
 }
-
 ```
 
 - Updating Connector Credential Environment Variables
