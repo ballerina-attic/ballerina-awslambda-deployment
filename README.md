@@ -15,7 +15,7 @@ The following are the sections available in this guide.
 - [Observability](#observability)
 
 ## What you’ll build 
-In this guide, you will build a Ballerina based AWS Lambda function which listens to events from a specific S3 bucket in order to detect new object creation. This bucket is used to upload images by various sources, and the job of the lambda is to check if the images are text documents, and if so, extract the text from the document, and send an email with the extracted test to the administrator. 
+In this guide, you will build a Ballerina based AWS Lambda function which listens to events from a specific S3 bucket in order to detect new object creation. This bucket is used to upload images by various sources, and the job of the lambda is to check if the images have any text, and if so, extract the text from the document, and send an email with the extracted text to the administrator. 
 
 ![Ballerina AWS Lambda Deployment](images/ballerina-aws-lambda.svg "Ballerina AWS Lambda Deployment")
 
@@ -34,7 +34,7 @@ In this guide, you will build a Ballerina based AWS Lambda function which listen
 
 ### AWS Access/Secret Key Generation
 
-Now having an active AWS account. You will need to create a access key / secret key pair. The instruction in doing this can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). Note down the access key and the secret key in a secured place. 
+Now having an active AWS account. You will need to create an access key / secret key pair. The instruction in doing this can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). Note down the access key and the secret key in a secured place. 
 
 ### AWS Lambda Role Generation
 
@@ -51,7 +51,7 @@ Now having an active AWS account. You will need to create a access key / secret 
 
 ## Implementation
 
-As the first step, you can build the basic skeleton that is needed for Ballerina to expose as AWS Lambda functions. Let's name the file `image-text-processor.bal `.
+As the first step, you can build the basic skeleton that is needed for Ballerina to expose as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
 
 ```ballerina
 import ballerinax/awslambda;
@@ -62,20 +62,13 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-In Ballerina, any function can be exposed as an AWS Lambda function, by annotating a function which has a similar function signature as the above function with `awslambda:Function`. The `awslambda:Context` contains contextual information on the current execution, such as the request id, tracing information, and remaining execution time. The payload is passed as a `json` value in the `input` variable, and the function can return a `json` as a response, or else an `error` can be returned to signal an error situation to the Lambda runtime. 
+In Ballerina, any function can be exposed as an AWS Lambda function, by annotating a function which has a similar function signature as the above function with `awslambda:Function`. The `awslambda:Context` object contains contextual information on the current execution, such as the request id, tracing information, and the remaining execution time. The payload is passed as a `json` value in the `input` variable, and the function can return a `json` as a response, or else an `error` can be returned to signal an error situation to the Lambda runtime. 
 
-In the next step, you will be updating the code to extracing the S3 object information retrieved by the Lambda function. Here, according to the input S3 event payload structure, we have extracted the bucket, object name and the version. 
+In the next step, you will be updating the code to extract the S3 object information retrieved by the Lambda function. Here, according to the input S3 event payload structure, we have extracted the bucket, object name and the version. 
 
 ```ballerina
 import ballerina/system;
 import ballerinax/awslambda;
-import wso2/amazonrekn;
-
-amazonrekn:Configuration config = {
-    accessKey: system:getEnv("AMAZON_ACCESS_KEY"),
-    secretKey: system:getEnv("AMAZON_SECRET_KEY"),
-    region: "us-west-2"
-};
 
 @awslambda:Function
 public function processImages(awslambda:Context ctx, json input) returns json|error {
@@ -91,7 +84,7 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-The next step is to invoke the Amazon Rekognition service to examine the image for text, and if so, extract the text that is there in the image. Here, you can see how the Amazon Rekognition connector is initiazed with the user credentials and the optional Amazon region setting. 
+The next step is to invoke the Amazon Rekognition service to examine the image for text, and if there is any, extract the text that is there in the image. Here, you can see how the Amazon Rekognition connector is initiazed with the user credentials and the optional Amazon region setting. 
 
 ```ballerina
 import wso2/amazonrekn;
@@ -231,7 +224,7 @@ Generating executable
 	aws lambda update-function-code --function-name <FUNCTION_NAME> --zip-file fileb://aws-ballerina-lambda-functions.zip
 ```
 
-The above command builds the Ballerina source, and the compiler via the AWS Lambda extension, injects special functionality needed to execute it as an AWS Lambda function. The output of this is a file named `aws-ballerina-lambda-functions.zip`, which is the artifact that will be submitted to AWS Lambda. In the build process, it prints out the processed list of Lambda functions after the text "@awslambda:Function:"; Here, we only have the function `processImages`. These function names must be used in the placeholder `<FUNCTION_NAME>` in the given commands. Also, another placeholder that we will have to replace would be the `<LAMBDA_ROLE_ARN>`, which is the ARN of the earlier generated role `lambda-role`.
+The above command builds the Ballerina source, and the compiler, via the AWS Lambda extension, injects special functionality needed to execute it as an AWS Lambda function. The output of this is a file named `aws-ballerina-lambda-functions.zip`, which is the artifact that will be submitted to AWS Lambda. In the build process, it prints out the processed list of Lambda functions after the text "@awslambda:Function:"; Here, we only have the function `processImages`. These function names must be used in the placeholder `<FUNCTION_NAME>` in the given commands. Also, another placeholder that we will have to replace would be the `<LAMBDA_ROLE_ARN>`, which is the ARN of the earlier generated role `lambda-role`.
 
 Also, there is another placeholder named `<BALLERINA_LAYER_ARN>`, which is the ARN of the Ballerina runtime layer. There will be a Ballerina runtime layer for each Ballerina release, thus, the specific `<BALLERINA_LAYER_ARN>` should be looked up from the table available at [https://ballerina.io/deployment/aws-lambda](https://ballerina.io/deployment/aws-lambda).
 
@@ -294,7 +287,7 @@ The credentials for the Amazon Rekognize and GMail connectors can be provided by
 ```bash
 aws lambda update-function-configuration --function-name processImages --environment "Variables={AMAZON_ACCESS_KEY=AXXXJKKK,AMAZON_SECRET_KEY=/XXXAAAA,GMAIL_CLIENTID=AAAXXXX.apps.googleusercontent.com,GMAIL_CLIENTSECRET=XXXXAAAAXXXXBBBBBBBXXXXX,GMAIL_REFRESHTOKEN=XXXXOFFXXXXX,GMAIL_ACCESSTOKEN=XXXX.XXX}"
 ```
-Fill in the environment variables values with our own API credentials. The above updates can also be done using the AWS Lambda web console, by navigating to the respective function's configuration page. 
+Fill in the environment variables values with your own API credentials. The above updates can also be done using the AWS Lambda web console, by navigating to the respective function's configuration page. 
 
 Now the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
 
