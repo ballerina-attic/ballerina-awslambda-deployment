@@ -34,7 +34,7 @@ In this guide, you will build a Ballerina based AWS Lambda function which listen
 
 ### AWS Access/Secret Key Generation
 
-Now having an active AWS account. You will need to create a access key / secret key pair. The instruction in doing this can be found [here] (https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). Note down the access key and the secret key in a secured place. 
+Now having an active AWS account. You will need to create a access key / secret key pair. The instruction in doing this can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). Note down the access key and the secret key in a secured place. 
 
 ### AWS Lambda Role Generation
 
