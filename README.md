@@ -130,7 +130,7 @@ The final step is to gather up the information and send an email to the administ
 
 ```ballerina
 import wso2/amazoncommons;
-import wso2/amazoncommons;
+import wso2/amazonrekn;
 import wso2/gmail;
 import ballerina/config;
 import ballerina/http;
