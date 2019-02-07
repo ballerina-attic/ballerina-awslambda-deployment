@@ -39,7 +39,7 @@ Now having an active AWS account. You will need to create an access key / secret
 ### AWS Lambda Role Generation
 
 - Open the [roles](https://console.aws.amazon.com/iam/home?#/roles) page in the IAM console.
-- Select "Create role"
+- Select "Create role".
 - Create roles with the following properties:
   * Trusted entity - Lambda
   * Permissions - AWSLambdaBasicExecutionRole
