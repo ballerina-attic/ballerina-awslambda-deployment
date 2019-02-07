@@ -196,7 +196,7 @@ Now that we have the full Ballerina code, we can go to the next step in deployin
 
 ## Deployment
 
-- Building the Ballerina source:
+### Building the Ballerina Source
 
 ```bash
 $ ballerina build image-text-processor.bal 
@@ -222,7 +222,7 @@ Also, there is another placeholder named `<BALLERINA_LAYER_ARN>`, which is the A
 
 With the above placeholder values at hand, we can start to deploy the function we have developed. This consists of running the `aws lambda create-function` and the `aws lambda update-function-configuration` commands to finish the deployment. Below contains sample build commands for deploying the `processImages` function.
 
-- Deploying to AWS Lambda
+### Deploying to AWS Lambda
 
 ```bash
 $ aws lambda create-function --function-name processImages --zip-file fileb://aws-ballerina-lambda-functions.zip --handler image-text-processor.processImages --runtime provided --role arn:aws:iam::908363916138:role/lambda-role --timeout 10 --memory-size 1024
@@ -272,7 +272,7 @@ $ aws lambda update-function-configuration --function-name processImages --layer
 }
 ```
 
-- Updating Connector Credential Environment Variables
+### Updating Connector Credential Environment Variables
 
 The credentials for the Amazon Rekognize and GMail connectors can be provided by setting environment variables for the target AWS Lambda function. The following command demonstrates this action.
 
