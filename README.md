@@ -88,7 +88,7 @@ The next step is to invoke the Amazon Rekognition service to examine the image f
 
 ```ballerina
 import wso2/amazoncommons;
-import wso2/amazoncommons;
+import wso2/amazonrekn;
 import ballerina/system;
 import ballerinax/awslambda;
 
