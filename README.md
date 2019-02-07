@@ -47,7 +47,7 @@ Now having an active AWS account. You will need to create an access key / secret
 
 ### Obtaining Tokens for the GMail Connector
 
-- The steps on how to get access to the tokens can be found in the Gmail connector [documentation](https://central.ballerina.io/wso2/gmail)
+- The steps on how to get access to the tokens can be found in the Gmail connector [documentation](https://central.ballerina.io/wso2/gmail).
 
 ## Implementation
 
