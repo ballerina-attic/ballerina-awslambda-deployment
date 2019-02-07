@@ -110,15 +110,11 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
        string objVersion = <string> input.Records[i].s3["object"].versionId;
        amazoncommons:S3Object obj = { bucket: bucket, name: name, objVersion: objVersion };
        amazonrekn:Label[] labels = check reknClient->detectLabels(obj);
-       boolean text = false;
        foreach amazonrekn:Label label in labels {
            if (label.name == "Text") {
-               text = true;
+               string result = check reknClient->detectText(obj);
                break;
            }
-       }
-       if (text) {
-           string result = check reknClient->detectText(obj);
        }
        i = i + 1;
    }
@@ -169,16 +165,12 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
        string objVersion = <string> input.Records[i].s3["object"].versionId;
        amazoncommons:S3Object obj = { bucket: bucket, name: name, objVersion: objVersion };
        amazonrekn:Label[] labels = check reknClient->detectLabels(obj);
-       boolean text = false;
        foreach amazonrekn:Label label in labels {
            if (label.name == "Text") {
-               text = true;
+               string result = check reknClient->detectText(obj);
+               check sendEmail(obj, result);
                break;
            }
-       }
-       if (text) {
-           string result = check reknClient->detectText(obj);
-           check sendEmail(obj, result);
        }
        i = i + 1;
    }
