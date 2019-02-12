@@ -300,7 +300,7 @@ Now the Ballerina AWS Lambda function `processImages` is fully deployed and conf
 
 We will be triggering our `processImages` function using events generated from an S3 bucket. Users will be uploading images to a specific bucket, and we will configure this bucket to send events to our lambda function when new objects are added. A guide on enabling event notifications for an S3 bucket can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-event-notifications.html). In configuring this, under events, you should chose "All object create events", and for the notification destination, select "Lambda Function" and select our `processImages` as the target function. 
 
-Now, we can simply upload an image with some text to the configured S3 bucket ([example]((https://upload.wikimedia.org/wikipedia/commons/a/af/Atomist_quote_from_Democritus.png)), and you should be able to get an email similar to the following:
+Upload an image with some text to the configured S3 bucket ([example]((https://upload.wikimedia.org/wikipedia/commons/a/af/Atomist_quote_from_Democritus.png)), and you will receive an email similar to the following:
 
 ```
 Subject: "Detected Text in Image at {"objVersion":"F6ABgbf8DRTpsXDPOsj528dsdqdvNbFM", "bucket":"mybucket", "name":"input.jpeg"}"
