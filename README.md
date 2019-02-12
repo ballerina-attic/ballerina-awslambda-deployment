@@ -31,7 +31,7 @@ In this guide, you will build a Ballerina-based AWS Lambda function, which liste
 - [Ballerina Distribution](https://ballerina.io/learn/getting-started/)
 - A Text Editor or an IDE 
 > **Tip**: For a better development experience, install one of the following Ballerina IDE plugins: [VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
-- Sign up for an [AWS](https://aws.amazon.com/) account
+- An [AWS](https://aws.amazon.com/) account
 - Install and configure [AWS CLI Tools](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-configure-cli.html)
 
 ### AWS Access/Secret Key Generation
