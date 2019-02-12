@@ -287,18 +287,25 @@ $ aws lambda update-function-configuration --function-name processImages --layer
 
 ### Updating Connector Credentials
 
-The credentials for the Amazon Rekognize and GMail connectors can be provided by setting environment variables for the target AWS Lambda function. The following command demonstrates this action.
+Execute the below command, to provide the credentials of the Amazon Rekognize and GMail connectors by setting environment variables for the target AWS Lambda function.
 
 ```bash
 aws lambda update-function-configuration --function-name processImages --environment "Variables={AMAZON_ACCESS_KEY=AXXXJKKK,AMAZON_SECRET_KEY=/XXXAAAA,GMAIL_CLIENTID=AAAXXXX.apps.googleusercontent.com,GMAIL_CLIENTSECRET=XXXXAAAAXXXXBBBBBBBXXXXX,GMAIL_REFRESHTOKEN=XXXXOFFXXXXX,GMAIL_ACCESSTOKEN=XXXX.XXX}"
 ```
 >*Note:**Replace the values of the environment variable with your own API credentials. Alternatively, you can do this via the AWS Lambda web Console by navigating to the configuration page of the respective function.
 
-Now the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
+Now, the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
 
 ## Testing 
 
-We will be triggering our `processImages` function using events generated from an S3 bucket. Users will be uploading images to a specific bucket, and we will configure this bucket to send events to our lambda function when new objects are added. A guide on enabling event notifications for an S3 bucket can be found [here](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-event-notifications.html). In configuring this, under events, you should chose "All object create events", and for the notification destination, select "Lambda Function" and select our `processImages` as the target function. 
+The `processImages` function will be triggered through events generated from an S3 bucket. Users will be uploading images to a specific bucket, and this bucket is configured to send events to the Lambda function when new objects are added. 
+
+For information on enabling event notifications for an S3 bucket, go to [How Do I Enable and Configure Event Notifications for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-event-notifications.html). 
+
+>*Tip:** Do the following when configuring event notifications:
+- Select **All object create events** under **Events**.
+- Select **Lambda Function** for the **the notification destination**.
+- Select the `processImages` function as the **target function**.
 
 Upload an image with some text to the configured S3 bucket ([example]((https://upload.wikimedia.org/wikipedia/commons/a/af/Atomist_quote_from_Democritus.png)), and you will receive an email similar to the following:
 
