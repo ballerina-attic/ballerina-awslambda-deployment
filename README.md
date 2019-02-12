@@ -233,7 +233,7 @@ Another placeholder that will have to be replaced would be the `<LAMBDA_ROLE_ARN
 
 The `<BALLERINA_LAYER_ARN>` placeholder is the ARN of the Ballerina runtime layer. There will be a Ballerina runtime layer for each Ballerina release. Thus, the specific `<BALLERINA_LAYER_ARN>` should be looked up from the table available in the [AWS Lambda Guide] (https://ballerina.io/deployment/aws-lambda).
 
-With the above placeholder values at hand, we can start to deploy the function we have developed. This consists of running the `aws lambda create-function` and the `aws lambda update-function-configuration` commands to finish the deployment. Below contains sample build commands for deploying the `processImages` function.
+You can deploy the function after replacing the above placeholder values. You need to execute the `aws lambda create-function` and `aws lambda update-function-configuration` commands to deploy it. See below for the sample build commands for deploying the `processImages` function.
 
 ### Deploying to AWS Lambda
 
