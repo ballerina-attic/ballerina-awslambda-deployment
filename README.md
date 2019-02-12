@@ -292,7 +292,7 @@ The credentials for the Amazon Rekognize and GMail connectors can be provided by
 ```bash
 aws lambda update-function-configuration --function-name processImages --environment "Variables={AMAZON_ACCESS_KEY=AXXXJKKK,AMAZON_SECRET_KEY=/XXXAAAA,GMAIL_CLIENTID=AAAXXXX.apps.googleusercontent.com,GMAIL_CLIENTSECRET=XXXXAAAAXXXXBBBBBBBXXXXX,GMAIL_REFRESHTOKEN=XXXXOFFXXXXX,GMAIL_ACCESSTOKEN=XXXX.XXX}"
 ```
-Fill in the environment variables values with your own API credentials. The above updates can also be done using the AWS Lambda web console, by navigating to the respective function's configuration page. 
+>*Note:**Replace the values of the environment variable with your own API credentials. Alternatively, you can do this via the AWS Lambda web Console by navigating to the configuration page of the respective function.
 
 Now the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
 
