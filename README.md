@@ -225,7 +225,11 @@ Generating executable
 	aws lambda update-function-code --function-name <FUNCTION_NAME> --zip-file fileb://aws-ballerina-lambda-functions.zip
 ```
 
-The above command builds the Ballerina source, and the compiler, via the AWS Lambda extension, injects special functionality needed to execute it as an AWS Lambda function. The output of this is a file named `aws-ballerina-lambda-functions.zip`, which is the artifact that will be submitted to AWS Lambda. In the build process, it prints out the processed list of Lambda functions after the text "@awslambda:Function:"; Here, we only have the function `processImages`. These function names must be used in the placeholder `<FUNCTION_NAME>` in the given commands. Also, another placeholder that we will have to replace would be the `<LAMBDA_ROLE_ARN>`, which is the ARN of the earlier generated role `lambda-role`.
+The above command builds the Ballerina source and the compiler via the AWS Lambda extension and injects the special functionality needed to execute it as an AWS Lambda function. The output of this is a file named `aws-ballerina-lambda-functions.zip`, which is the artifact that will be submitted to AWS Lambda.
+
+During the build process, it prints the processed list of Lambda functions after the "@awslambda:Function:" text. In this example, the only function that is there is `processImages`. These function names must be used within the `<FUNCTION_NAME>`placeholder  in the given commands. 
+
+Another placeholder that will have to be replaced would be the `<LAMBDA_ROLE_ARN>`, which is the ARN of the earlier-generated `lambda-role`.
 
 Also, there is another placeholder named `<BALLERINA_LAYER_ARN>`, which is the ARN of the Ballerina runtime layer. There will be a Ballerina runtime layer for each Ballerina release, thus, the specific `<BALLERINA_LAYER_ARN>` should be looked up from the table available at [https://ballerina.io/deployment/aws-lambda](https://ballerina.io/deployment/aws-lambda).
 
