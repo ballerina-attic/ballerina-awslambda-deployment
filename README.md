@@ -37,7 +37,10 @@ In this guide, you will build a Ballerina-based AWS Lambda function, which liste
 
 ### AWS Access/Secret Key Generation
 
-Now having an active AWS account. You will need to create an access key / secret key pair. The instruction in doing this can be found [here](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). Note down the access key and the secret key in a secured place. 
+You need to create an access key / secret key pair for the active AWS account you have.  
+For instructions, go to [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html). 
+
+>**Note:** Copy and keep the access key and the secret key in a secured location. 
 
 ### AWS Lambda Role Generation
 
