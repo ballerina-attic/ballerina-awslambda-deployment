@@ -231,7 +231,7 @@ During the build process, it prints the processed list of Lambda functions after
 
 Another placeholder that will have to be replaced would be the `<LAMBDA_ROLE_ARN>`, which is the ARN of the earlier-generated `lambda-role`.
 
-Also, there is another placeholder named `<BALLERINA_LAYER_ARN>`, which is the ARN of the Ballerina runtime layer. There will be a Ballerina runtime layer for each Ballerina release, thus, the specific `<BALLERINA_LAYER_ARN>` should be looked up from the table available at [https://ballerina.io/deployment/aws-lambda](https://ballerina.io/deployment/aws-lambda).
+The `<BALLERINA_LAYER_ARN>` placeholder is the ARN of the Ballerina runtime layer. There will be a Ballerina runtime layer for each Ballerina release. Thus, the specific `<BALLERINA_LAYER_ARN>` should be looked up from the table available in the [AWS Lambda Guide] (https://ballerina.io/deployment/aws-lambda).
 
 With the above placeholder values at hand, we can start to deploy the function we have developed. This consists of running the `aws lambda create-function` and the `aws lambda update-function-configuration` commands to finish the deployment. Below contains sample build commands for deploying the `processImages` function.
 
