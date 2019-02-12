@@ -57,7 +57,8 @@ For instructions on how to get access to the tokens, go to [Gmail Connector docu
 
 ## Implementation
 
-As the first step, you can build the basic skeleton that is needed for Ballerina to expose as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
+Follow the steps below to implement AWS Lambda functions.
+1. Build the basic skeleton that is needed to expose Ballerina functions as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
 
 ```ballerina
 import ballerinax/awslambda;
