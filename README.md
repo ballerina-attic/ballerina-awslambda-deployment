@@ -53,7 +53,7 @@ For instructions, go to [Managing Access Keys for IAM Users](https://docs.aws.am
 
 ### Obtaining Tokens for the GMail Connector
 
-- The steps on how to get access to the tokens can be found in the Gmail connector [documentation](https://central.ballerina.io/wso2/gmail).
+For instructions on how to get access to the tokens, go to [Gmail Connector documentation](https://central.ballerina.io/wso2/gmail).
 
 ## Implementation
 
