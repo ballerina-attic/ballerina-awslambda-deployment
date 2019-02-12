@@ -287,7 +287,7 @@ $ aws lambda update-function-configuration --function-name processImages --layer
 
 ### Updating Connector Credentials
 
-The credentials for the Amazon Rekognize and GMail connectors can be provided by setting environment variables for the target AWS Lambda function. The following command demonstrates this action.
+Execute the below command, to provide the credentials of the Amazon Rekognize and GMail connectors by setting environment variables for the target AWS Lambda function.
 
 ```bash
 aws lambda update-function-configuration --function-name processImages --environment "Variables={AMAZON_ACCESS_KEY=AXXXJKKK,AMAZON_SECRET_KEY=/XXXAAAA,GMAIL_CLIENTID=AAAXXXX.apps.googleusercontent.com,GMAIL_CLIENTSECRET=XXXXAAAAXXXXBBBBBBBXXXXX,GMAIL_REFRESHTOKEN=XXXXOFFXXXXX,GMAIL_ACCESSTOKEN=XXXX.XXX}"
