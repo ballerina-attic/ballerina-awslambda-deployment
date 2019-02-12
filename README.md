@@ -49,7 +49,7 @@ For instructions, go to [Managing Access Keys for IAM Users](https://docs.aws.am
 3. Create roles using the below properties:
   * **Trusted entity:** - Lambda
   * **Permissions:** - AWSLambdaBasicExecutionRole
-  * Role name - lambda-role
+  * **Role name:** lambda-role
 
 ### Obtaining Tokens for the GMail Connector
 
