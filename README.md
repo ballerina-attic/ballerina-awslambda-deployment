@@ -3,7 +3,7 @@
 # Ballerina AWS Lambda Deployment
 [AWS Lambda](https://aws.amazon.com/lambda/) allows you to deploy your code without explicit provisioning or managing servers. This serverless framework works in a way that, you pay only for the time your code is running, so there is no money wasted with idling resources. The AWA Lambda functions can be invoked through events emitting through various services in AWS, such as S3 and SQS. Also, it is possible to invoke it directly using an exposed API through an API gateway.
 
-> In this guide you will learn about how to deploy Ballerina functions as AWS lambda functions.
+> In this guide you will learn how to deploy Ballerina functions as AWS Lambda functions.
 
 The following are the sections available in this guide.
 
