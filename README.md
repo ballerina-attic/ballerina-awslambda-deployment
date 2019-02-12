@@ -7,7 +7,7 @@ With this serverless framework, you pay only for the time your code is running s
 
 > In this guide you will learn how to deploy Ballerina functions as AWS Lambda functions.
 
-The following are the sections available in this guide.
+This guide consists of the below sections.
 
 - [What you'll build](#what-youll-build)
 - [Prerequisites](#prerequisites)
