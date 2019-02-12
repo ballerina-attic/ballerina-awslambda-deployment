@@ -294,7 +294,7 @@ aws lambda update-function-configuration --function-name processImages --environ
 ```
 >*Note:**Replace the values of the environment variable with your own API credentials. Alternatively, you can do this via the AWS Lambda web Console by navigating to the configuration page of the respective function.
 
-Now the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
+Now, the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
 
 ## Testing 
 
