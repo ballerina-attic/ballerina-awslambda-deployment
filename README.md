@@ -69,7 +69,8 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-In Ballerina, any function can be exposed as an AWS Lambda function, by annotating a function which has a similar function signature as the above function with `awslambda:Function`. The `awslambda:Context` object contains contextual information on the current execution, such as the request id, tracing information, and the remaining execution time. The payload is passed as a `json` value in the `input` variable, and the function can return a `json` as a response, or else an `error` can be returned to signal an error situation to the Lambda runtime. 
+In Ballerina, any function can be exposed as an AWS Lambda function by annotating a function which has a similar function signature as the above function, with `awslambda:Function`. The `awslambda:Context` object contains contextual information on the current execution such as the request id, tracing information, and the remaining execution time. 
+The payload is passed as a `json` value via the `input` variable. The function can return a `json` as a response, or else an `error` can be returned to signal an error situation to the Lambda runtime. 
 
 In the next step, you will be updating the code to extract the S3 object information retrieved by the Lambda function. Here, according to the input S3 event payload structure, we have extracted the bucket, object name and the version. 
 
