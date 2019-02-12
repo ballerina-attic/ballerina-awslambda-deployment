@@ -199,7 +199,7 @@ public function sendEmail(amazoncommons:S3Object obj, string text) returns error
 }
 ```
 
-NOTE: replace the `recipient` and `sender` values in the GMail message request properties accordingly.
+>**Note:** Replace the `recipient` and `sender` values of the properties in the GMail message request accordingly.
 
 Now that we have the full Ballerina code, we can go to the next step in deploying it as an AWS Lambda function. 
 
