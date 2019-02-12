@@ -17,7 +17,7 @@ This guide consists of the below sections.
 - [Observability](#observability)
 
 ## What you’ll build 
-In this guide, you will build a Ballerina based AWS Lambda function which listens to events from a specific S3 bucket in order to detect new object creation. This bucket is used to upload images by various sources, and the job of the lambda is to check if the images have any text, and if so, extract the text from the document, and send an email with the extracted text to the administrator. 
+In this guide, you will build a Ballerina-based AWS Lambda function, which listens to events from a specific S3 bucket in order to detect new object creations. This bucket is used to upload images via various sources. The job of the Lambda function is to check if the images have any text, and if so, extract the text from the document, and send an email with the extracted text to the administrator. 
 
 ![Ballerina AWS Lambda Deployment](images/ballerina-aws-lambda.svg "Ballerina AWS Lambda Deployment")
 
