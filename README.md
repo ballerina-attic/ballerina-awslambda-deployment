@@ -46,7 +46,7 @@ For instructions, go to [Managing Access Keys for IAM Users](https://docs.aws.am
 
 1. Open the [roles](https://console.aws.amazon.com/iam/home?#/roles) page in the IAM console.
 2. Click **Create role**.
-- Create roles with the following properties:
+3. Create roles using the below properties:
   * Trusted entity - Lambda
   * Permissions - AWSLambdaBasicExecutionRole
   * Role name - lambda-role
