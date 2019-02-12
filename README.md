@@ -9,7 +9,7 @@ With this serverless framework, you pay only for the time your code is running s
 
 This guide consists of the below sections.
 
-- [What you'll build](#what-youll-build)
+- [What you will build](#what-you-will-build)
 - [Prerequisites](#prerequisites)
 - [Implementation](#implementation)
 - [Deployment](#deployment)
