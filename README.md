@@ -30,7 +30,7 @@ In this guide, you will build a Ballerina-based AWS Lambda function, which liste
  
 - [Ballerina Distribution](https://ballerina.io/learn/getting-started/)
 - A Text Editor or an IDE 
-> **Tip**: For a better development experience, install one of the following Ballerina IDE plugins: [VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
+> **Tip:** For a better development experience, install one of the following Ballerina IDE plugins: [VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
 - An [AWS](https://aws.amazon.com/) account
 - AWS CLI Tools (installed and configured)
 >**Tip:** For instructions, go to [AWS Documentation].(https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-configure-cli.html)
@@ -47,8 +47,8 @@ For instructions, go to [Managing Access Keys for IAM Users](https://docs.aws.am
 1. Open the [roles](https://console.aws.amazon.com/iam/home?#/roles) page in the IAM console.
 2. Click **Create role**.
 3. Create roles using the below properties:
-  * **Trusted entity:** - Lambda
-  * **Permissions:** - AWSLambdaBasicExecutionRole
+  * **Trusted entity:** Lambda
+  * **Permissions:** AWSLambdaBasicExecutionRole
   * **Role name:** lambda-role
 
 ### Obtaining Tokens for the GMail Connector
@@ -292,7 +292,7 @@ Execute the below command, to provide the credentials of the Amazon Rekognize an
 ```bash
 aws lambda update-function-configuration --function-name processImages --environment "Variables={AMAZON_ACCESS_KEY=AXXXJKKK,AMAZON_SECRET_KEY=/XXXAAAA,GMAIL_CLIENTID=AAAXXXX.apps.googleusercontent.com,GMAIL_CLIENTSECRET=XXXXAAAAXXXXBBBBBBBXXXXX,GMAIL_REFRESHTOKEN=XXXXOFFXXXXX,GMAIL_ACCESSTOKEN=XXXX.XXX}"
 ```
->*Note:**Replace the values of the environment variable with your own API credentials. Alternatively, you can do this via the AWS Lambda web Console by navigating to the configuration page of the respective function.
+>**Note:** Replace the values of the environment variable with your own API credentials. Alternatively, you can do this via the AWS Lambda web Console by navigating to the configuration page of the respective function.
 
 Now, the Ballerina AWS Lambda function `processImages` is fully deployed and configured to be used. 
 
@@ -302,7 +302,7 @@ The `processImages` function will be triggered through events generated from an 
 
 For information on enabling event notifications for an S3 bucket, go to [How Do I Enable and Configure Event Notifications for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/enable-event-notifications.html). 
 
->*Tip:** Do the following when configuring event notifications:
+>**Tip:** Do the following when configuring event notifications:
 - Select **All object create events** under **Events**.
 - Select **Lambda Function** for the **the notification destination**.
 - Select the `processImages` function as the **target function**.
