@@ -92,7 +92,8 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-The next step is to invoke the Amazon Rekognition service to examine the image for text, and if there is any, extract the text that is there in the image. Here, you can see how the Amazon Rekognition connector is initiazed with the user credentials and the optional Amazon region setting. 
+3. Invoke the Amazon Rekognition service to examine the image and extract any text that is there in it.
+In the below example, the Amazon Rekognition Connector is initialized with the user credentials, and the Amazon `region` setting, which is optional. 
 
 ```ballerina
 import wso2/amazoncommons;
