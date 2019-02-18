@@ -59,7 +59,7 @@ For instructions on how to get access to the tokens, go to [Gmail Connector docu
 
 Follow the steps below to implement the AWS Lambda function.
 
-1. Build the basic skeleton that is needed to expose Ballerina functions as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
+1.&nbsp;Build the basic skeleton that is needed to expose Ballerina functions as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
 
 ```ballerina
 import ballerinax/awslambda;
@@ -73,7 +73,7 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 In Ballerina, any function can be exposed as an AWS Lambda function by annotating a function which has a similar function signature as the above function, with `awslambda:Function`. The `awslambda:Context` object contains contextual information on the current execution such as the request id, tracing information, and the remaining execution time. 
 The payload is passed as a `json` value via the `input` variable. The function can return a `json` as a response, or else an `error` can be returned to signal an error situation to the Lambda runtime. 
 
-2. Update the code to extract the S3 object information retrieved by the Lambda function. In the below example, the bucket, object name, and the version are extracted according to the payload structure of the input S3 event. 
+2.&nbsp;Update the code to extract the S3 object information retrieved by the Lambda function. In the below example, the bucket, object name, and the version are extracted according to the payload structure of the input S3 event. 
 
 ```ballerina
 import ballerina/system;
@@ -93,7 +93,7 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-3. Invoke the Amazon Rekognition service to examine the image and extract any text that is there in it.
+3.&nbsp;Invoke the Amazon Rekognition service to examine the image and extract any text that is there in it.
 In the below example, the Amazon Rekognition Connector is initialized with the user credentials, and the Amazon `region` setting, which is optional. 
 
 ```ballerina
