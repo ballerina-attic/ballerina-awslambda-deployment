@@ -33,7 +33,7 @@ In this guide, you will build a Ballerina-based AWS Lambda function, which liste
 > **Tip:** For a better development experience, install one of the following Ballerina IDE plugins: [VSCode](https://marketplace.visualstudio.com/items?itemName=ballerina.ballerina), [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/9520-ballerina)
 - An [AWS](https://aws.amazon.com/) account
 - AWS CLI Tools (installed and configured)
->**Tip:** For instructions, go to [AWS Documentation].(https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-configure-cli.html)
+>**Tip:** For instructions, go to [AWS Documentation](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-configure-cli.html)
 
 ### AWS Access/Secret Key Generation
 
@@ -57,7 +57,8 @@ For instructions on how to get access to the tokens, go to [Gmail Connector docu
 
 ## Implementation
 
-Follow the steps below to implement AWS Lambda functions.
+Follow the steps below to implement the AWS Lambda function.
+
 1. Build the basic skeleton that is needed to expose Ballerina functions as AWS Lambda functions. Let's name the file `image-text-processor.bal`.
 
 ```ballerina
