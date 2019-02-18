@@ -132,7 +132,7 @@ public function processImages(awslambda:Context ctx, json input) returns json|er
 }
 ```
 
-4. If there are any text content in the uploaded images, collect that information and send an email to the administrator using the Ballerina GMail Connector. 
+4.&nbsp;If there are any text content in the uploaded images, collect that information and send an email to the administrator using the Ballerina GMail Connector. 
 
 ```ballerina
 import wso2/amazoncommons;
