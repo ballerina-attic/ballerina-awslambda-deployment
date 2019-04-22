@@ -24,7 +24,7 @@ In this guide, you will build a Ballerina-based AWS Lambda function, which liste
 ## Compatibility
 | Ballerina Language Version | 
 | -------------------------- | 
-| 0.990.3                    |
+| 0.991.0                   |
 
 ## Prerequisites
  
